@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>KUMÖD – Kocaeli Uluslararası Misafir Öğrenciler Derneği</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        background: #f5f7fa;
+        color: #111827;
+      }
+      header {
+        background: linear-gradient(135deg, #0f766e, #115e59);
+        color: white;
+        padding: 24px 16px;
+      }
+      .container {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 16px;
+      }
+      nav {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        margin-top: 12px;
+        font-size: 0.95rem;
+      }
+      nav a {
+        color: #e5e7eb;
+        text-decoration: none;
+      }
+      nav a:hover {
+        text-decoration: underline;
+      }
+      .hero {
+        padding: 32px 0;
+      }
+      .hero h1 {
+        font-size: 2rem;
+        margin-bottom: 8px;
+      }
+      .hero p {
+        max-width: 640px;
+        line-height: 1.6;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 16px;
+        margin-top: 24px;
+      }
+      .card {
+        background: white;
+        border-radius: 12px;
+        padding: 16px 18px;
+        box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+      }
+      .card h3 {
+        margin-top: 0;
+        margin-bottom: 8px;
+        font-size: 1.05rem;
+      }
+      footer {
+        margin-top: 40px;
+        padding: 16px;
+        font-size: 0.85rem;
+        color: #6b7280;
+        border-top: 1px solid #e5e7eb;
+        background: #f9fafb;
+      }
+      .badge {
+        display: inline-block;
+        padding: 4px 10px;
+        border-radius: 999px;
+        background: rgba(15, 118, 110, 0.12);
+        color: #0f766e;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="badge">KUMÖD</div>
+        <h1>Kocaeli Uluslararası Misafir Öğrenciler Derneği</h1>
+        <nav>
+          <a href="#">Ana Sayfa</a>
+          <a href="#hakkimizda">Hakkımızda</a>
+          <a href="#projeler">Projeler</a>
+          <a href="#haberler">Haberler</a>
+          <a href="#iletisim">İletişim</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero">
+        <h2>Hoş geldiniz 👋</h2>
+        <p>
+          KUMÖD, kültürler ve medeniyetler arasında köprüler kurmayı
+          hedefleyen gönüllü bir sivil toplum hareketidir. Eğitim, kültür,
+          dayanışma ve gençlik odaklı projeler ile Kocaeli’de ve
+          uluslararası alanda etki üretmeyi amaçlıyoruz.
+        </p>
+      </section>
+
+      <section id="bloklar" class="grid">
+        <article class="card" id="hakkimizda">
+          <h3>Biz Kimiz?</h3>
+          <p>
+            Farklı kültür ve medeniyetlerin bir arada barış içinde
+            yaşayabildiği, dayanışma ve paylaşımın güçlendiği bir toplum
+            hayal ediyoruz. KUMÖD bu hayalin etrafında bir araya gelen
+            gönüllülerden oluşur.
+          </p>
+        </article>
+
+        <article class="card" id="projeler">
+          <h3>Çalışma Alanlarımız</h3>
+          <p>
+            Kültür-sanat etkinlikleri, gençlik projeleri, uluslararası
+            değişim programları, sosyal sorumluluk çalışmaları ve eğitim
+            faaliyetleri yürütüyoruz.
+          </p>
+        </article>
+
+        <article class="card" id="haberler">
+          <h3>Haberler &amp; Duyurular</h3>
+          <p>
+            Çok yakında bu bölümde KUMÖD'ün projeleri, faaliyetleri ve
+            duyuruları yer alacak. Sosyal medya hesaplarımız üzerinden
+            paylaşılan içerikler otomatik olarak buraya düşecek.
+          </p>
+        </article>
+
+        <article class="card" id="iletisim">
+          <h3>İletişim</h3>
+          <p>
+            İletişim için: <strong>info@kumod.org</strong><br />
+            Sosyal medya hesaplarımız: Instagram, X, Facebook (yakında).
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        © <span id="yil"></span> KUMÖD – Kocaeli Uluslararası Misafir Öğrenciler Derneği. Tüm hakları saklıdır.
+      </div>
+      <script>
+        document.getElementById("yil").textContent = new Date().getFullYear();
+      </script>
+    </footer>
+  </body>
+</html>
