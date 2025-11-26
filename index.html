@@ -4,97 +4,330 @@
     <meta charset="UTF-8" />
     <title>KUMÖD – Kocaeli Uluslararası Misafir Öğrenciler Derneği</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Favicon: küçük sekme ikonu (yuvarlak logo) -->
+    <link rel="icon" type="image/png" href="assets/img/kumod-round.png" />
     <style>
+      :root {
+        --kumod-green: #0b6f37;
+        --kumod-green-dark: #0a2e1f;
+        --kumod-bg-soft: #f5f7fa;
+        --kumod-text: #111827;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
       body {
         margin: 0;
         font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
           sans-serif;
-        background: #f5f7fa;
-        color: #111827;
+        background: var(--kumod-bg-soft);
+        color: var(--kumod-text);
       }
+
       header {
-        background: linear-gradient(135deg, #0f766e, #115e59);
+        background: linear-gradient(135deg, #0a2e1f, #0b6f37);
         color: white;
-        padding: 24px 16px;
+        padding: 14px 16px;
       }
+
       .container {
-        max-width: 960px;
+        max-width: 1040px;
         margin: 0 auto;
-        padding: 16px;
+        padding: 0 16px;
       }
-      nav {
+
+      .topbar {
         display: flex;
+        align-items: center;
+        justify-content: space-between;
         gap: 16px;
         flex-wrap: wrap;
-        margin-top: 12px;
-        font-size: 0.95rem;
       }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .brand-logo {
+        width: 42px;
+        height: 42px;
+        border-radius: 999px;
+        background: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .brand-logo img {
+        width: 36px;
+        height: 36px;
+        object-fit: contain;
+      }
+
+      .brand-text h1 {
+        font-size: 1.1rem;
+        margin: 0;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+      }
+
+      .brand-text span {
+        font-size: 0.75rem;
+        opacity: 0.9;
+      }
+
+      nav {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        font-size: 0.92rem;
+      }
+
       nav a {
         color: #e5e7eb;
         text-decoration: none;
+        padding-bottom: 2px;
       }
+
       nav a:hover {
-        text-decoration: underline;
+        border-bottom: 2px solid #e5e7eb;
       }
+
+      main {
+        padding: 24px 0 40px;
+      }
+
       .hero {
-        padding: 32px 0;
+        display: grid;
+        grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
+        gap: 24px;
+        align-items: center;
+        margin-bottom: 32px;
       }
-      .hero h1 {
-        font-size: 2rem;
-        margin-bottom: 8px;
+
+      .hero-text h2 {
+        font-size: 1.9rem;
+        margin: 0 0 8px;
+        color: var(--kumod-green-dark);
       }
-      .hero p {
-        max-width: 640px;
+
+      .hero-text p {
+        margin: 0 0 16px;
         line-height: 1.6;
       }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 3px 10px;
+        border-radius: 999px;
+        background: rgba(11, 111, 55, 0.1);
+        color: var(--kumod-green);
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+      }
+
+      .badge-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 999px;
+        background: var(--kumod-green);
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 8px;
+      }
+
+      .btn {
+        border-radius: 999px;
+        padding: 9px 18px;
+        font-size: 0.9rem;
+        border: none;
+        cursor: pointer;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .btn-primary {
+        background: var(--kumod-green);
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background: #095a2e;
+      }
+
+      .btn-ghost {
+        background: transparent;
+        color: var(--kumod-green-dark);
+        border: 1px solid rgba(15, 23, 42, 0.1);
+      }
+
+      .btn-ghost:hover {
+        background: rgba(148, 163, 184, 0.12);
+      }
+
+      .hero-logo {
+        background: white;
+        border-radius: 16px;
+        padding: 18px 18px 14px;
+        box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .hero-logo img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+      }
+
+      .hero-logo-title {
+        font-size: 0.88rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--kumod-green-dark);
+      }
+
+      .hero-logo-sub {
+        font-size: 0.8rem;
+        color: #4b5563;
+      }
+
       .grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 16px;
-        margin-top: 24px;
+        gap: 18px;
+        margin-bottom: 26px;
       }
+
+      .section-title {
+        font-size: 1.25rem;
+        margin: 0 0 12px;
+        color: var(--kumod-green-dark);
+      }
+
       .card {
         background: white;
-        border-radius: 12px;
+        border-radius: 14px;
         padding: 16px 18px;
-        box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+        box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
       }
+
       .card h3 {
         margin-top: 0;
-        margin-bottom: 8px;
-        font-size: 1.05rem;
+        margin-bottom: 6px;
+        font-size: 1.02rem;
+        color: var(--kumod-green-dark);
       }
+
+      .card p {
+        margin: 0;
+        font-size: 0.94rem;
+        line-height: 1.6;
+      }
+
+      .muted {
+        font-size: 0.88rem;
+        color: #6b7280;
+      }
+
+      .stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 6px;
+      }
+
+      .stat-pill {
+        padding: 7px 12px;
+        border-radius: 999px;
+        background: rgba(148, 163, 184, 0.16);
+        font-size: 0.8rem;
+        color: #374151;
+      }
+
       footer {
-        margin-top: 40px;
-        padding: 16px;
-        font-size: 0.85rem;
+        margin-top: 8px;
+        padding: 18px 0 22px;
+        font-size: 0.86rem;
         color: #6b7280;
         border-top: 1px solid #e5e7eb;
         background: #f9fafb;
       }
-      .badge {
-        display: inline-block;
-        padding: 4px 10px;
-        border-radius: 999px;
-        background: rgba(15, 118, 110, 0.12);
-        color: #0f766e;
-        font-size: 0.75rem;
-        font-weight: 600;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-        margin-bottom: 8px;
+
+      .footer-inner {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .footer-links a {
+        color: #4b5563;
+        text-decoration: none;
+      }
+
+      .footer-links a:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 720px) {
+        .hero {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        .hero-logo {
+          order: -1;
+        }
+
+        .topbar {
+          align-items: flex-start;
+        }
       }
     </style>
   </head>
   <body>
     <header>
-      <div class="container">
-        <div class="badge">KUMÖD</div>
-        <h1>Kocaeli Uluslararası Misafir Öğrenciler Derneği</h1>
+      <div class="container topbar">
+        <div class="brand">
+          <!-- Küçük alanlar için yuvarlak olmayan ikon + HTML yazı -->
+          <div class="brand-logo">
+            <img src="assets/img/kumod-icon.png" alt="KUMÖD Logo" />
+          </div>
+          <div class="brand-text">
+            <h1>KUMÖD</h1>
+            <span>Kocaeli Uluslararası Misafir Öğrenciler Derneği</span>
+          </div>
+        </div>
         <nav>
-          <a href="#">Ana Sayfa</a>
           <a href="#hakkimizda">Hakkımızda</a>
-          <a href="#projeler">Projeler</a>
+          <a href="#projeler">Çalışma Alanları</a>
           <a href="#haberler">Haberler</a>
           <a href="#iletisim">İletişim</a>
         </nav>
@@ -103,57 +336,104 @@
 
     <main class="container">
       <section class="hero">
-        <h2>Hoş geldiniz 👋</h2>
-        <p>
-          KUMÖD, kültürler ve medeniyetler arasında köprüler kurmayı
-          hedefleyen gönüllü bir sivil toplum hareketidir. Eğitim, kültür,
-          dayanışma ve gençlik odaklı projeler ile Kocaeli’de ve
-          uluslararası alanda etki üretmeyi amaçlıyoruz.
-        </p>
+        <div class="hero-text">
+          <div class="badge">
+            <span class="badge-dot"></span>
+            Misafir öğrenciler için güvenli liman
+          </div>
+          <h2>Kocaeli’deki uluslararası öğrenciler için kardeşlik ve rehberlik adresi.</h2>
+          <p>
+            KUMÖD, Kocaeli'de eğitim gören misafir öğrencilerin uyum, aidiyet ve
+            gelişim süreçlerine katkı sunmak için kurulmuş bir sivil toplum
+            derneğidir. Kültürel etkinlikler, danışmanlık ve gönüllülük
+            çalışmalarıyla öğrencilerin yanında oluyoruz.
+          </p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" onclick="document.getElementById('iletisim').scrollIntoView({behavior:'smooth'})">
+              İletişime Geç
+            </button>
+            <button class="btn btn-ghost" onclick="document.getElementById('projeler').scrollIntoView({behavior:'smooth'})">
+              Çalışmalarımızı Gör
+            </button>
+          </div>
+        </div>
+
+        <!-- Non-round logo + altında HTML yazı -->
+        <div class="hero-logo">
+          <img
+            src="assets/img/kumod-icon.png"
+            alt="Kocaeli Uluslararası Misafir Öğrenciler Derneği"
+          />
+          <div class="hero-logo-title">KUMÖD</div>
+          <div class="hero-logo-sub">
+            Kocaeli Uluslararası Misafir Öğrenciler Derneği
+          </div>
+        </div>
       </section>
 
-      <section id="bloklar" class="grid">
-        <article class="card" id="hakkimizda">
+      <section class="grid" id="hakkimizda">
+        <article class="card">
           <h3>Biz Kimiz?</h3>
           <p>
-            Farklı kültür ve medeniyetlerin bir arada barış içinde
-            yaşayabildiği, dayanışma ve paylaşımın güçlendiği bir toplum
-            hayal ediyoruz. KUMÖD bu hayalin etrafında bir araya gelen
-            gönüllülerden oluşur.
+            Kocaeli'de üniversite eğitimi alan uluslararası misafir
+            öğrencilerin, eğitim hayatları boyunca yalnız hissetmedikleri,
+            şehirle ve toplumla güçlü bağlar kurabildikleri bir ortam
+            oluşturmayı amaçlıyoruz.
           </p>
         </article>
 
         <article class="card" id="projeler">
           <h3>Çalışma Alanlarımız</h3>
           <p>
-            Kültür-sanat etkinlikleri, gençlik projeleri, uluslararası
-            değişim programları, sosyal sorumluluk çalışmaları ve eğitim
+            Oryantasyon programları, dil destek çalışmaları, kültür-sanat ve
+            spor etkinlikleri, sosyal sorumluluk projeleri ve rehberlik
             faaliyetleri yürütüyoruz.
           </p>
+          <div class="stats">
+            <div class="stat-pill">Oryantasyon &amp; rehberlik</div>
+            <div class="stat-pill">Kültürel ve sosyal etkinlikler</div>
+            <div class="stat-pill">Gönüllülük ve dayanışma</div>
+          </div>
         </article>
 
         <article class="card" id="haberler">
           <h3>Haberler &amp; Duyurular</h3>
-          <p>
-            Çok yakında bu bölümde KUMÖD'ün projeleri, faaliyetleri ve
+          <p class="muted">
+            Çok yakında bu bölümde KUMÖD'ün etkinlikleri, projeleri ve
             duyuruları yer alacak. Sosyal medya hesaplarımız üzerinden
-            paylaşılan içerikler otomatik olarak buraya düşecek.
+            paylaşılan gönderiler, otomasyon sistemi ile buraya haber
+            formatında yansıtılacaktır.
           </p>
         </article>
 
         <article class="card" id="iletisim">
           <h3>İletişim</h3>
           <p>
-            İletişim için: <strong>info@kumod.org</strong><br />
-            Sosyal medya hesaplarımız: Instagram, X, Facebook (yakında).
+            Genel iletişim: <strong>info@kumod.org</strong><br />
+            Sosyal medya hesaplarımız ve iletişim kanallarımız çok yakında
+            burada yer alacak.
+          </p>
+          <p class="muted">
+            Kocaeli merkezli çalışmalarımız hakkında bilgi almak veya misafir
+            öğrencilerle ilgili çalışmalarınıza KUMÖD'ü dahil etmek için
+            bizimle iletişime geçebilirsiniz.
           </p>
         </article>
       </section>
     </main>
 
     <footer>
-      <div class="container">
-        © <span id="yil"></span> KUMÖD – Kocaeli Uluslararası Misafir Öğrenciler Derneği. Tüm hakları saklıdır.
+      <div class="container footer-inner">
+        <div>
+          © <span id="yil"></span> KUMÖD – Kocaeli Uluslararası Misafir
+          Öğrenciler Derneği
+        </div>
+        <div class="footer-links">
+          <a href="#hakkimizda">Hakkımızda</a>
+          <a href="#projeler">Çalışmalar</a>
+          <a href="#haberler">Haberler</a>
+          <a href="#iletisim">İletişim</a>
+        </div>
       </div>
       <script>
         document.getElementById("yil").textContent = new Date().getFullYear();
