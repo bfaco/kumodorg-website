@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <title>KUMÖD Instagram Yönetim Paneli (Yerel)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      margin: 20px;
+      background: #f9fafb;
+      color: #111827;
+    }
+    h1 {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+    }
+    label {
+      display: block;
+      font-size: 0.9rem;
+      margin-top: 10px;
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 8px 10px;
+      border-radius: 8px;
+      border: 1px solid #d1d5db;
+      font-size: 0.9rem;
+      box-sizing: border-box;
+    }
+    textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+    button {
+      margin-top: 12px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: none;
+      background: #0b6f37;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    pre {
+      margin-top: 16px;
+      background: #111827;
+      color: #e5e7eb;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      overflow-x: auto;
+    }
+    .muted {
+      font-size: 0.8rem;
+      color: #6b7280;
+    }
+  </style>
+</head>
+<body>
+  <h1>KUMÖD Instagram Gönderi Yardımcısı</h1>
+  <p class="muted">
+    Bu panel sadece JSON parçası üretir. Çıktıyı kopyalayıp
+    <strong>data/instagram.json</strong> içindeki <code>posts</code> dizisine
+    eklemen yeterli.
+  </p>
+
+  <label>Görsel yolu (ör: assets/img/vali-ziyareti.jpg)</label>
+  <input id="image" />
+
+  <label>Başlık</label>
+  <input id="title" />
+
+  <label>Açıklama</label>
+  <textarea id="caption"></textarea>
+
+  <label>Tarih (YYYY-MM-DD)</label>
+  <input id="date" />
+
+  <label>Instagram gönderi linki</label>
+  <input id="link" />
+
+  <button type="button" onclick="generateJson()">JSON Oluştur</button>
+
+  <pre id="output">// Burada JSON çıktısı görünecek</pre>
+
+  <script>
+    function generateJson() {
+      const obj = {
+        image: document.getElementById("image").value.trim(),
+        title: document.getElementById("title").value.trim(),
+        caption: document.getElementById("caption").value.trim(),
+        date: document.getElementById("date").value.trim(),
+        link: document.getElementById("link").value.trim()
+      };
+
+      const json = JSON.stringify(obj, null, 2);
+      document.getElementById("output").textContent =
+        json + ",\n// Bunu posts dizisine ekle";
+    }
+  </script>
+</body>
+</html>
