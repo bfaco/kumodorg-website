@@ -415,12 +415,12 @@
 
 .insta-card {
   background: white;
-  border-radius: 16px;
-  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+  border-radius: 20px;
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
   overflow: hidden;
   display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.3fr);
-  gap: 0;
+  grid-template-columns: 1.6fr 1fr;
+  min-height: 420px; /* ← büyütme burada başlıyor */
 }
 
 .insta-header {
@@ -475,19 +475,19 @@
 
 .insta-image {
   background: #000;
+  height: 420px; /* Tam oranlı büyük foto alanı */
 }
 
 .insta-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
 }
 
 .insta-body {
-  padding: 14px 16px 16px;
-  font-size: 0.92rem;
-  line-height: 1.6;
+   padding: 22px 24px 28px;
+  font-size: 1rem;
+  line-height: 1.7;
 }
 
 .insta-body h4 {
