@@ -405,6 +405,110 @@
           align-items: flex-start;
         }
       }
+  .instagram-section {
+  margin-bottom: 32px;
+}
+
+#instagram-highlight {
+  margin-top: 10px;
+}
+
+.insta-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.3fr);
+  gap: 0;
+}
+
+.insta-header {
+  grid-column: 1 / -1;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.insta-profile {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.insta-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: #e5e7eb;
+}
+
+.insta-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.insta-username {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.insta-date {
+  font-size: 0.78rem;
+  color: #6b7280;
+}
+
+.insta-view-link {
+  font-size: 0.82rem;
+  color: var(--kumod-green);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.insta-view-link:hover {
+  text-decoration: underline;
+}
+
+.insta-image {
+  background: #000;
+}
+
+.insta-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.insta-body {
+  padding: 14px 16px 16px;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.insta-body h4 {
+  margin: 0 0 6px;
+  font-size: 1rem;
+  color: var(--kumod-green-dark);
+}
+
+@media (max-width: 720px) {
+  .insta-card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .insta-image {
+    order: 2;
+  }
+
+  .insta-body {
+    order: 3;
+  }
+}
     </style>
   </head>
   <body>
@@ -519,6 +623,16 @@
         </article>
       </section>
 
+      
+      <!-- Instagram tarzı günün paylaşımı bölümü -->
+      <section class="instagram-section" id="instagram">
+        <div class="container">
+          <h3 class="section-title">Instagram’dan Günün Paylaşımı</h3>
+          <div id="instagram-highlight"></div>
+        </div>
+      </section>
+    </main>
+
        <!-- YENİ INSTAGRAM BÖLÜMÜ BURADA BAŞLIYOR -->
       <section class="instagram-section" id="instagram">
         <div class="container">
@@ -596,8 +710,19 @@
       </script>
     </footer>
 
-    <!-- Instagram gömülü gönderiler için -->
-    <script async src="https://www.instagram.com/embed.js"></script>
+         <script>
+        document.getElementById("yil").textContent =
+          new Date().getFullYear();
+      </script>
+    </footer>
+
+    <!-- Haberler için JSON verisi -->
+    <script src="assets/js/news.js"></script>
+    <!-- Instagram tarzı günün paylaşımı -->
+    <script src="assets/js/instagram.js"></script>
+  </body>
+</html>
+
 
     <!-- Haberler için JSON verisini okuyan script -->
     <script src="assets/js/news.js"></script>
