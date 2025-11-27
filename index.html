@@ -509,6 +509,54 @@
     order: 3;
   }
 }
+
+  .insta-carousel {
+  position: relative;
+}
+
+.insta-slide-wrapper {
+  /* içerik zaten .insta-card ile geliyor */
+}
+
+.insta-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(15, 23, 42, 0.12);
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+}
+
+.insta-nav:hover {
+  background: rgba(15, 23, 42, 0.2);
+}
+
+.insta-prev {
+  left: 10px;
+}
+
+.insta-next {
+  right: 10px;
+}
+
+@media (max-width: 720px) {
+  .insta-nav {
+    width: 30px;
+    height: 30px;
+    font-size: 1.2rem;
+  }
+}
+
     </style>
   </head>
   <body>
